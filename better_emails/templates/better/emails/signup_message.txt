@@ -1,0 +1,4 @@
+{% load i18n %}{% blocktrans with current_site.name as site_name %}User '{{ user }}' at {{ site_name }} has signed up.
+
+To confirm the account, go to {{ activate_url }}
+{% endblocktrans %}

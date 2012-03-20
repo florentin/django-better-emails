@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load account_tags %}
+
+{% block head_title %}{% trans "Confirm Email" %}{% endblock %}
+
+{% block content %}
+	{% if params.error %}
+		<h1>Errors !</h1>
+		<p>{{ params.error }}
+	{% else %}
+		<h1>{% trans "Account activated" %}</h1>
+        {% user_display params.address.user as user_display %}
+        <p>{% blocktrans with params.address.email as email %}Signup complete. You have confirmed that {{ email }} is an email address for user '{{ user_display }}'.{% endblocktrans %}</p>
+    {% endif %}
+{% endblock %}

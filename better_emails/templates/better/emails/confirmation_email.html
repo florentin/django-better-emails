@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account_tags %}
+
+{% block head_title %}{% trans "Confirm Email" %}{% endblock %}
+
+{% block content %}
+    {% if params.error %}
+		<h1>Errors !</h1>
+		<p>{{ params.error }}
+	{% else %}
+		{% if params.address.verified %}
+	    	<h1>{% trans "Email Confirmed" %}</h1>
+	    	{% user_display params.address.user as user_display %}
+	    	<p>{% blocktrans with params.address.email as email %}You have confirmed that {{ email }} is an email address for user '{{ user_display }}'.{% endblocktrans %}</p>
+        {% else %}
+			<p>{% trans "The email address was not verified." %}</p>
+        {% endif %}
+	{% endif %}
+{% endblock %}
