@@ -1,5 +1,5 @@
 from django.dispatch import receiver
-from better.auth.signals import signup_complete, email_complete
+from better_auth.signals import signup_complete, email_complete
 from .models import Address, Confirmation
 
 @receiver(signup_complete, sender=None)

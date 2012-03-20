@@ -48,4 +48,5 @@ class Confirmation(models.Model):
     key_expired.boolean = True
 
 
-import_module(app_settings.EMAILS_RECEIVERS_MODULE)
+if app_settings.EMAILS_RECEIVERS_MODULE:
+    import_module(app_settings.EMAILS_RECEIVERS_MODULE)

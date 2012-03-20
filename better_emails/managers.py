@@ -58,7 +58,7 @@ class ConfirmationManager(models.Manager):
         current_site = Site.objects.get_current()
         # check for the url with the dotted view path
         try:
-            path = reverse("better.emails.views.confirmation",
+            path = reverse("better_emails.views.confirmation",
                            args=[operation, confirmation.confirmation_key])
         except NoReverseMatch:
             # or get path with named urlconf instead
